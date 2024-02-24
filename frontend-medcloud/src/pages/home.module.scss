@@ -1,0 +1,26 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  max-width: 420px;
+}
+
+.content{
+  max-width: 600px;
+  > span {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  h1{
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+}
