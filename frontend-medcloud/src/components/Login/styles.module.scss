@@ -1,0 +1,31 @@
+.container{
+  display: grid;
+  place-items: center;
+}
+
+.containerLogin{
+  > input{
+    margin-bottom: 40px;
+  }
+}
+
+.input {
+  border-radius: 0.6rem;
+  border: 1px solid #000000;
+  width: 25rem;
+  height: 30px;
+}
+
+.loginButton{
+  width: 80%;
+  border-radius: 1rem;
+  height: 3rem;
+  background: #8ec4fa;
+
+  transition: filter 0.2s;
+
+  &:hover{
+    filter: brightness(0.9);
+  }
+}
+

@@ -9,8 +9,8 @@ export default function Home() {
         <section className={styles.content}>
           <img src='/images/logo-medcloud.png' alt='MedCloud' className={styles.logo}/>
           <h1>Sua Clínica Simplificada e <span>Otimizada</span></h1>
-          <Login />
         </section>
+        <Login />
       </main>
     </>
   )
