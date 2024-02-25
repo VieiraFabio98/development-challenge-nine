@@ -2,6 +2,9 @@ import { Login } from '@/components/Login'
 import styles from './home.module.scss'
 
 export default function Home() {
+
+  
+
   return(
     <>
       <title>Home | MedCloud</title>
