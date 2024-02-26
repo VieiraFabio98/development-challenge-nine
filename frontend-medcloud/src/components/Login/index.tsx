@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useState, useEffect } from 'react'
 import styles from './styles.module.scss'
 
 export function Login() {
@@ -7,8 +7,29 @@ export function Login() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log('Email:', email);
-    console.log('Password:', password);
+    const url = 'http://localhost:3333/sessions'
+
+    const userData = {
+      name: 'admin',
+      email: email,
+      password: password
+    }
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    }
+
+    try{
+      const response = await fetch(url, requestOptions)
+      console.log(response)
+    }catch(err){
+      console.log(err)
+    }
+    
   }
 
   return(

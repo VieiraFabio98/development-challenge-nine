@@ -19,6 +19,12 @@
   width: 25rem;
   height: 30px;
   cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border: 2.5px solid #4fbaf7;
+  outline: none;
 }
 
 .loginButton{
