@@ -1,10 +1,7 @@
-import { Login } from '@/components/Login'
+import { Login } from '@/pages/Login'
 import styles from './home.module.scss'
 
 export default function Home() {
-
-  
-
   return(
     <>
       <title>Home | MedCloud</title>
