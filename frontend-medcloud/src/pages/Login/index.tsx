@@ -1,55 +1,37 @@
-import { FormEvent, useState } from 'react'
-import { useRouter } from 'next/router'
+import { FormEvent, useContext, useState } from 'react'
 import styles from './styles.module.scss'
+import { AuthContext } from '@/contexts/AuthContext'
 
 export function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const router = useRouter()
+  const { signIn } = useContext(AuthContext)
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const url = 'http://localhost:3333/sessions'
-
-    const payload = {
-      email: email,
-      password: password
-    }
-
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-
-      if(response.ok) {
-        const data = await response.json()
-        router.push('AdminScreen')
-      }
-    }catch(error){
+      await signIn({ email, password })
+    } catch (error) {
       console.log(error)
     }
   }
-  return(
+
+  return (
     <form onSubmit={handleSubmit}>
       <div className={styles.container}>
         <div className={styles.containerLogin}>
-          <input 
-            className={styles.inputForm}  
-            type="email" 
-            placeholder="E-mail" 
+          <input
+            className={styles.inputForm}
+            type="email"
+            placeholder="E-mail"
             name='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input 
-            className={styles.inputForm}  
-            type="password" 
-            placeholder="Senha" 
+          <input
+            className={styles.inputForm}
+            type="password"
+            placeholder="Senha"
             name='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
